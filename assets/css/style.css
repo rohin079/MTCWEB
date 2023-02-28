@@ -106,9 +106,10 @@ h6 {
     display: block;
     width: 60px;
     height: 5px;
-    background: #2BAE66FF;
+background: green;
     bottom: 0;
     left: calc(50% - 25px);
+   
 }
 
 .section-header h2 {
@@ -498,7 +499,7 @@ h6 {
 #hero {
     width: 100%;
     height: 100vh;
-    background: url("../img/group_frontpage.jpeg") top center;
+    background: url("../img/home.jpeg") top center;
     background-size: cover;
     overflow: hidden;
     position: relative;
@@ -541,16 +542,38 @@ h6 {
 }
 
 #hero h1 {
-    color: #fff;
-    font-family: "Raleway", sans-serif;
+  /* css code for gradient  
+    color: linear-gradient(red 30%, green 50%, blue 20%);*/
+
+    font-family: "Product Sans", sans-serif;
     font-size: 56px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font
+    -weight: 600;
+
+  /*  background: linear-gradient(to right, red, green, blue, yellow);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke-width: 0.9px;
+    -webkit-text-stroke-color: black;*/
 }
 
-#hero h1 span {
-    color: #2BAE66FF;
+
+#hero h1 span:nth-child(1) {
+    color: #1BFFF5;
 }
+
+#hero h1 span:nth-child(2) {
+    color: white;
+}
+
+#hero h1 span:nth-child(3) {
+    color: yellow;
+}
+
+#hero h1 br span:nth-child(4) {
+    color: green;
+}
+
 
 @media (max-width: 991px) {
     #hero h1 {
@@ -2235,10 +2258,122 @@ displaow {col-md-5{
     z-index: 1;
 }
 
+/*css code for card */
+
+.containersp{
+    width: 90%;
+    position: relative;
+    top: 80%;
+    left: 10%;
+    right: 90%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.containersp .cardsp{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin: 40px;
+}
+
+.containersp .cardsp .contentsp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.containersp .cardsp .contentsp.front{
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transform-origin: bottom;
+}
+
+.containersp .cardsp .contentsp.front img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.containersp .cardsp:hover .contentsp.front{
+    transform: translateY(-100%) rotateX(90deg);
+}
+
+.containersp .cardsp .contentsp.back{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    color: black;
+    transform: translateY(100%) rotateX(90deg);
+}
+
+.containersp .cardsp .contentsp.back h2{
+    color: black;
+    margin: 15px 0;
+}
+
+.containersp .cardsp .contentsp.back h3{
+    color: black;
+    margin: 15px 0;
+}
+
+.containersp .cardsp .contentsp.back p{
+    text-align: center;
+}
+
+.containersp .cardsp .contentsp.back .social{
+    margin: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.containersp .cardsp .contentsp.back .social a{
+    margin: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+}
+
+.containersp .cardsp .contentsp.back .social a i{
+    font-size: 21px;
+    color: black;
+}
+
+.containersp .cardsp .contentsp.back .social a:hover{
+    background: chocolate;
+}
+
+.containersp .cardsp .contentsp.back .social a:hover i{
+    color: white;
+}
+
+.containersp .cardsp:hover .contentsp.back{
+    transform: translateY(0) rotateX(0deg);
+}
+
+@media (max-width:425px){
+    .containersp{
+        width: 90%;
+    }
+}
+
 .services .icon-box::before {
     content: '';
     position: absolute;
-    background: #e1f0fa;
+  /*background: #e1f0fa;*/
     right: -60px;
     top: -40px;
     width: 100px;
@@ -2249,13 +2384,104 @@ displaow {col-md-5{
 }
 
 .services .icon-box:hover::before {
-    background: #2BAE66FF;
+ /* background: #2BAE66FF;*/
     right: 0;
     top: 0;
     width: 100%;
     height: 100%;
     border-radius: 0px;
 }
+
+
+
+/* css hover effect on sponsor card effect */
+
+
+.cardsp {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 360px;
+    height: 400px;
+    background: #000;
+}
+.cardsp .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.cardsp .image img {
+    width: 100%;
+    transition: .5s;
+}
+.cardsp :hover .image img {
+    opacity: .5;
+    transform: translateX(30%);/*100%*/
+}
+.cardsp .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;/*100%*/
+    height: 100%;
+    background: #ffc107;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+}
+.cardsp :hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+.cardsp .details .center {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.cardsp .details .center h1 {
+    margin: 0;
+    padding: 0;
+    color: #ff3636;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.cardsp .details .center h1 span {
+    font-size: 14px;
+    color: #262626;
+}
+.cardsp .details .center p {
+    margin: 10px 0;
+    padding: 0;
+    color: #262626;
+}
+.cardsp .details .center ul {
+    margin: 10px auto 0;
+    padding: 0;
+    display: table;
+}
+.cardsp .details .center ul li {
+    list-style: none;
+    margin: 0 5px;
+    float: left;
+}
+.cardsp .details .center ul li a {
+    display: block;
+    background: #262626;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transform: .5s;
+}
+.cardsp .details .center ul li a:hover {
+    background: #ff3636;
+}
+
 
 .services .icon {
     margin: 0 auto 20px auto;
@@ -2459,63 +2685,3 @@ displaow {col-md-5{
     }
 
 }
-
-/* Countdown */
-
-.launch-time{
-    font-weight: 550;
-    margin-left: 2%;
-    color: #2BAE66FF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 3%;
-}
-
-.launch-time div{
-    
-    flex-basis: 100px;
-}
-
-.launch-time div p{
-    font-size: 60px;
-    margin-bottom: -14px;
-}
-
-.col-md-5{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Register Button */
-.container .Button{
-    margin-top: 2%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 4px solid #2BAE66FF; */
-    color: #fff;
-    background-color: #2BAE66FF;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 50px;
-    border: none;
-    font-weight: 700;
-    transition: 0.2s ease-out;
-}
-
-.container .Button:hover{
-    transform: scale(110%);
-    transition: 0.2s ease-in;
-}
-
-.col-md-5{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-} 
